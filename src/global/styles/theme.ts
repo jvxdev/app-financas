@@ -14,7 +14,7 @@ export default {
         shape: '#FFFFFF',
         title: '#363F5F',
         text: '#969CB2',
-        background: '#000'
+        background: '#FF872C',
     },
     fonts: {
         regular: 'Poppins_400Regular',

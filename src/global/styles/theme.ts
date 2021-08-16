@@ -1,6 +1,6 @@
 export default {
     colors: {
-        primary: 'pink',
+        primary: '#FFC0CB',
 
         secondary: '##FF872C',
         secondary_light: 'rgba(255, 135, 44, 0.3)',
@@ -14,6 +14,11 @@ export default {
         shape: '#FFFFFF',
         title: '#363F5F',
         text: '#969CB2',
-        background: 'black'
+        background: '#000'
+    },
+    fonts: {
+        regular: 'Poppins_400Regular',
+        medium: 'Poppins_500Medium',
+        bold: 'Poppins_700Bold'
     }
 }

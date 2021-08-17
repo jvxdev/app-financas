@@ -18,11 +18,11 @@ export default {
         text: "#969CB2",
         background: "#F0F2F5",
 
-        icon: "#000000",
+        black: "#000000",
     },
     fonts: {
         regular: 'Roboto_400Regular',
         medium: 'Roboto_500Medium',
-        bold: 'Roboto_700Bold'
+        bold: 'Roboto_900Black'
     }
 }

@@ -9,7 +9,8 @@ import {
     User,
     UserGreeting,
     UserName,
-    Icon
+    Icon,
+    HighlightCards
 } from './styles';
 
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -32,8 +33,13 @@ export function Dashboard() {
                 <Icon name="power"/>
             </UserWrapper>
         </Header>
-
-        <HighlightCard />
+        <HighlightCards>
+            <HighlightCard />
+            <HighlightCard />
+            <HighlightCard />
+            <HighlightCard />
+            <HighlightCard />
+        </HighlightCards>
     </Container>
     )
 }

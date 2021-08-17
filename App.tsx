@@ -6,7 +6,7 @@ import {
   useFonts,
   Roboto_400Regular,
   Roboto_500Medium,
-  Roboto_700Bold
+  Roboto_900Black
 } from '@expo-google-fonts/roboto';
 
 import theme from './src/global/styles/theme';
@@ -17,7 +17,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
-    Roboto_700Bold
+    Roboto_900Black
   });
 
   if (!fontsLoaded) {

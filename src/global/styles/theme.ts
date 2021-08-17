@@ -1,3 +1,5 @@
+import { Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
+
 export default {
     colors: {
         primary: "#FFC0CB",
@@ -16,11 +18,11 @@ export default {
         text: "#969CB2",
         background: "#F0F2F5",
 
-        icon: "#000000"
+        icon: "#000000",
     },
     fonts: {
-        regular: 'Poppins_400Regular',
-        medium: 'Poppins_500Medium',
-        bold: 'Poppins_700Bold'
+        regular: 'Roboto_400Regular',
+        medium: 'Roboto_500Medium',
+        bold: 'Roboto_700Bold'
     }
 }

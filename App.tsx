@@ -28,5 +28,5 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Dashboard />
     </ThemeProvider>
-    )
+    );
 }

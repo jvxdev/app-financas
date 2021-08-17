@@ -10,11 +10,9 @@ export const Container = styled.View`
 export const Header = styled.View`
     width: 100%;
     height: ${RFPercentage(42)}px;
-
     background-color: ${({ theme }) => theme.colors.primary};
-
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
 `;
 
@@ -24,6 +22,7 @@ export const UserWrapper = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: ${RFValue(70)}px;
 `;
 
 export const UserInfo = styled.View`
@@ -38,21 +37,18 @@ export const User = styled.View`
 export const Photo = styled.Image`
     width: ${RFValue(48)}px;
     height: ${RFValue(48)}px;
-
     border-radius: 20px;
 `;
 
 export const UserGreeting = styled.Text`
     color: ${({ theme }) => theme.colors.shape};
     font-size: ${RFValue(18)}px;
-
     font-family: ${({ theme }) => theme.fonts.regular};
 `;
 
 export const UserName = styled.Text`
     color: ${({ theme }) => theme.colors.shape};
     font-size: ${RFValue(18)}px;
-
     font-family: ${({ theme }) => theme.fonts.bold};
 `;
 
@@ -65,4 +61,8 @@ export const HighlightCards = styled.ScrollView.attrs({
     horizontal: true,
     showsHorizontalScrollIndicator: false,
     contentContainerStyle: { padding: 24 }
-})``;
+})`
+    width: 100%;
+    position: absolute;
+    margin-top: ${RFValue(120)}px;
+`;

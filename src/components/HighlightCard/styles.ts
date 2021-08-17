@@ -5,6 +5,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 export const Container = styled.View`
     background-color: ${({ theme }) => theme.colors.shape};
     width: ${RFValue(300)}px;
+    height: ${RFValue(200)}px;
     border-radius: 7px;
     padding: 19px 23px;
     padding-bottom: ${RFValue(42)}px;
@@ -18,7 +19,7 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
     font-family: ${({ theme }) => theme.fonts.regular};
-    font-size: ${RFValue(14)}px;
+    font-size: ${RFValue(20)}px;
     color: ${({ theme }) => theme.colors.black};
 `;
 

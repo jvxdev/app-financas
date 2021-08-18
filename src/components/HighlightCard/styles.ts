@@ -9,12 +9,11 @@ interface TypeProps {
 export const Container = styled.View<TypeProps>`
     background-color: ${({ theme, type }) => 
     type === 'total' ? theme.colors.black : theme.colors.shape};
-    width: ${RFValue(300)}px;
-    height: ${RFValue(200)}px;
+    width: ${RFValue(350)}px;
     border-radius: 7px;
     padding: 19px 23px;
     padding-bottom: ${RFValue(42)}px;
-    margin-right: 24px;
+    margin-right: 16px;
 `;
 
 export const Header = styled.View`

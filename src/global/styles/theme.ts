@@ -17,8 +17,8 @@ export default {
         title: "#363F5F",
         text: "#969CB2",
         background: "#F0F2F5",
-
         black: "#000000",
+        highlight_card: "#151515"
     },
     fonts: {
         regular: 'Roboto_400Regular',

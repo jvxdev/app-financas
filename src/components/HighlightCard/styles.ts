@@ -8,7 +8,7 @@ interface TypeProps {
 
 export const Container = styled.View<TypeProps>`
     background-color: ${({ theme, type }) => 
-    type === 'total' ? theme.colors.black : theme.colors.shape};
+    type === 'total' ? theme.colors.highlight_card : theme.colors.shape};
     width: ${RFValue(350)}px;
     border-radius: 7px;
     padding: 19px 23px;

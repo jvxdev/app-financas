@@ -20,7 +20,8 @@ import {
 } from './styles';
 
 const data = [{
-    title: "Desenvolvimento de site",
+    type: 'positive',
+    title: "Desenvolvimento de sistema Web",
     amount: "R$ 18.000,00",
     category: {
         name: 'Vendas',
@@ -29,20 +30,22 @@ const data = [{
     date: "15/06/2021"
 },
 {
-    title: "Desenvolvimento de aplicativo",
-    amount: "R$ 12.000,00",
+    type: 'negative',
+    title: "iFood",
+    amount: "R$ 1.000,00",
     category: {
-        name: 'Vendas',
-        icon: 'dollar-sign'
+        name: 'Alimentação',
+        icon: 'coffee'
     },
     date: "11/06/2021"
 },
 {
-    title: "Desenvolvimento de App Desktop",
-    amount: "R$ 8.000,00",
+    type: 'negative',
+    title: "Aluguel do apartamento",
+    amount: "R$ 2.000,00",
     category: {
-        name: 'Vendas',
-        icon: 'dollar-sign'
+        name: 'Casa',
+        icon: 'shopping-bag'
     },
     date: "02/06/2021"
 }
@@ -68,19 +71,19 @@ export function Dashboard() {
             <HighlightCards>
                 <HighlightCard
                     title="Entradas"
-                    amount="R$ 14.300,00"
+                    amount="R$ 18.000,00"
                     lastTransaction="Última entrada dia 9 de março"
                     type="up"
                 />
                 <HighlightCard
                     title="Saídas"
-                    amount="R$ 1.300,00"
+                    amount="R$ 3.000,00"
                     lastTransaction="Última saída dia 2 de março"
                     type="down"
                 />
                 <HighlightCard
                     title="Total"
-                    amount="R$ 15.600,00"
+                    amount="R$ 18.000,00"
                     lastTransaction="02 à 09 de março"
                     type="total"
                 />

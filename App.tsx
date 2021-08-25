@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import theme from './src/global/styles/theme';
 
-import { CategorySelect } from './src/screens/CategorySelect';
+import { Register } from './src/screens/Register';
 
 import {
   useFonts,
@@ -26,7 +26,7 @@ export default function App() {
 
   return ( 
     <ThemeProvider theme={theme}>
-      <CategorySelect />
+      <Register />
     </ThemeProvider>
     );
 }

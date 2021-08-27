@@ -135,7 +135,7 @@ export function Register() {
                     </Fields>
 
                     <Button
-                        title="Enviar"
+                        title="Salvar"
                         onPress={handleSubmit(handleRegister)}
                     />
                 </Form>

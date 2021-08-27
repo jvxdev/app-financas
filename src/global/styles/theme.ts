@@ -2,7 +2,8 @@ import { Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-googl
 
 export default {
     colors: {
-        primary: "#696969",
+        primary: "#FFC0CB",
+        primary_light: "#D3D3D3",
 
         secondary: "#FF872C",
         secondary_light: "rgba(255, 135, 44, 0.3)",

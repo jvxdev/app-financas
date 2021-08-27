@@ -3,6 +3,7 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 import { FlatList } from 'react-native';
 import { DataListProps } from '.';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
     flex: 1;
@@ -43,15 +44,19 @@ export const Photo = styled.Image`
 `;
 
 export const UserGreeting = styled.Text`
-    color: ${({ theme }) => theme.colors.shape};
+    color: ${({ theme }) => theme.colors.black};
     font-size: ${RFValue(18)}px;
     font-family: ${({ theme }) => theme.fonts.regular};
 `;
 
 export const UserName = styled.Text`
-    color: ${({ theme }) => theme.colors.shape};
+    color: ${({ theme }) => theme.colors.black };
     font-size: ${RFValue(18)}px;
     font-family: ${({ theme }) => theme.fonts.bold};
+`;
+
+export const LogoutButton = styled(BorderlessButton)`
+
 `;
 
 export const Icon = styled(Feather)`

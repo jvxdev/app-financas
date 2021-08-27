@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Platform } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,12 +15,11 @@ export function AppRoutes() {
 
         <Navigator
         screenOptions={{
-            tabBarActiveTintColor: theme.colors.secondary,
-            tabBarInactiveTintColor: theme.colors.black,
+            tabBarActiveTintColor: theme.colors.black,
+            tabBarInactiveTintColor: theme.colors.text,
             tabBarLabelPosition: 'beside-icon',
             tabBarStyle: {
-                paddingVertical: Platform.OS === "android" ? 10 : 0,
-                height: 88
+                height: 60
             }
         }}
         >

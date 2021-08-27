@@ -24,8 +24,8 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
     font-family: ${({ theme }) => theme.fonts.regular};
-    font-size: ${RFValue(18)}px;
-    color: ${({ theme }) => theme.colors.shape};
+    font-size: ${RFValue(22)}px;
+    color: ${({ theme }) => theme.colors.black};
 `;
 
 export const Category = styled(TouchableOpacity)<CategoryProps>`
@@ -34,7 +34,7 @@ export const Category = styled(TouchableOpacity)<CategoryProps>`
     flex-direction: row;
     align-items: center;
     background-color: ${({ isActive }) =>
-    isActive ? theme.colors.secondary_light: theme.colors.background
+    isActive ? theme.colors.primary_light : theme.colors.background
     };
 `;
 

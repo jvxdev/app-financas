@@ -19,12 +19,12 @@ export function AppRoutes() {
             tabBarInactiveTintColor: theme.colors.text,
             tabBarLabelPosition: 'beside-icon',
             tabBarStyle: {
-                height: 60
+                height: 50
             }
         }}
         >
             <Screen 
-                name="Listagem"
+                name="LISTAGEM"
                 component={Dashboard}
                 options={{ headerShown: false, tabBarIcon: (({ size, color }) => (
                     <MaterialIcons
@@ -36,7 +36,7 @@ export function AppRoutes() {
             }}
             />
             <Screen 
-                name="Cadastrar"
+                name="CADASTRAR"
                 component={Register}
                 options={{ headerShown: false, tabBarIcon: (({ size, color }) => (
                     <MaterialIcons
@@ -48,7 +48,7 @@ export function AppRoutes() {
             }}
             />
             <Screen 
-                name="Resumo"
+                name="RESUMO"
                 component={Register}
                 options={{ headerShown: false, tabBarIcon: (({ size, color }) => (
                     <MaterialIcons

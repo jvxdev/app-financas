@@ -94,6 +94,7 @@ export function Register() {
 
         try {
             const data = await AsyncStorage.getItem(dataKey);
+
             const currentData = data ? JSON.parse(data) : [];
 
             const dataFormatted = [
@@ -110,7 +111,7 @@ export function Register() {
                 name: 'Categoria'
             });
 
-            navigation.navigate('LISTAGEM');
+            navigation.navigate('Listagem');
         } catch (error) {
             console.log(error);
             Alert.alert("Não foi possível salvar.")

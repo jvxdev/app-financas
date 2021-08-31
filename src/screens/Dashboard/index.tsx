@@ -27,41 +27,85 @@ export interface DataListProps extends TransactionCardProps {
     id: string;
 }
 
+interface HightlightProps {
+    amount: string;
+}
+
+interface HighlightData {
+    entries: HightlightProps;
+    outputs: HightlightProps;
+    total: HightlightProps;
+}
+
 export function Dashboard() {
 
-    const [data, setData] = useState<DataListProps[]>([]);
+    const [transactions, setTransactions] = useState<DataListProps[]>([]);
+    const [highlightData, setHighlightData] = useState<HighlightData>({} as HighlightData);
 
     async function loadTransactions() {
         const dataKey = '@appfinancas:transactions';
         const response = await AsyncStorage.getItem(dataKey);
 
-        const transactions = response ? JSON.parse(response): [];
+        const transactions = response ? JSON.parse(response) : [];
+
+        let entriesTotal = 0;
+        let outputsTotal = 0;
+
         const transactionsFormatted: DataListProps[] = transactions
-        .map((item: DataListProps) => {
+            .map((item: DataListProps) => {
 
-            const amount = Number(item.amount)
-            .toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            })
+                if (item.type === 'positive') {
+                    entriesTotal += Number(item.amount);
+                } else {
+                    outputsTotal += Number(item.amount);
+                }
 
-            const date = Intl.DateTimeFormat('pt-BR', {
-                day: '2-digit',
-                month: '2-digit',
-                year: '2-digit'
-            }).format(new Date(item.date));
+                const amount = Number(item.amount)
+                    .toLocaleString('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    });
 
-            return {
-                id: item.id,
-                name: item.name,
-                amount,
-                type: item.type,
-                category: item.category,
-                date
+                const date = Intl.DateTimeFormat('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: '2-digit'
+                }).format(new Date(item.date));
+
+                return {
+                    id: item.id,
+                    name: item.name,
+                    amount,
+                    type: item.type,
+                    category: item.category,
+                    date
+                }
+            });
+
+        setTransactions(transactionsFormatted);
+
+        const total = entriesTotal - outputsTotal;
+        
+        setHighlightData({
+            entries: {
+                amount: entriesTotal.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                })
+            },
+            outputs: {
+                amount: outputsTotal.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                })
+            },
+            total: {
+                amount: total.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                })
             }
         });
-
-        setData(transactionsFormatted);
     }
 
     useEffect(() => {
@@ -86,7 +130,7 @@ export function Dashboard() {
                         </User>
                     </UserInfo>
 
-                    <LogoutButton onPress={() => {}}>
+                    <LogoutButton onPress={() => { }}>
                         <Icon name="power" />
                     </LogoutButton>
 
@@ -95,19 +139,19 @@ export function Dashboard() {
             <HighlightCards>
                 <HighlightCard
                     title="Entradas"
-                    amount="R$ 18.000,00"
+                    amount={highlightData.entries.amount}
                     lastTransaction="Última entrada dia 9 de março"
                     type="up"
                 />
                 <HighlightCard
                     title="Saídas"
-                    amount="R$ 3.000,00"
+                    amount={highlightData.outputs.amount}
                     lastTransaction="Última saída dia 2 de março"
                     type="down"
                 />
                 <HighlightCard
                     title="Total"
-                    amount="R$ 18.000,00"
+                    amount={highlightData.total.amount}
                     lastTransaction="02 à 09 de março"
                     type="total"
                 />
@@ -116,7 +160,7 @@ export function Dashboard() {
             <Transactions>
                 <Title>Listagem</Title>
                 <TransactionsList
-                    data={data}
+                    data={transactions}
                     keyExtractor={item => item.id}
                     renderItem={({ item }) => <TransactionCard data={item} />}
                 />

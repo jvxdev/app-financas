@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
     flex: 1;
@@ -20,3 +21,7 @@ export const Title = styled.Text`
     font-size: ${RFValue(22)}px;
     color: ${({ theme }) => theme.colors.black};
 `;
+
+export const Content = styled(ScrollView).attrs({
+    contentContainerStyle: { flex: 1, padding: 24 }
+})``;

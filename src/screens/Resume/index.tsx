@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VictoryPie } from 'victory-native';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { addMonths, subMonths, format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-
 import { useTheme } from 'styled-components';
 
 import { HistoryCard } from '../../components/HistoryCard';
@@ -21,7 +23,6 @@ import {
 } from './styles';
 
 import { categories } from '../../utils/categories';
-import { RFValue } from 'react-native-responsive-fontsize';
 
 interface TransactionData {
     type: 'positive' | 'negative';
@@ -41,17 +42,32 @@ interface CategoryData {
 }
 
 export function Resume() {
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
 
     const theme = useTheme();
+
+    function handleDateChange(action: 'next' | 'prev') {
+        if (action === 'next') {
+            setSelectedDate(addMonths(selectedDate, 1));
+        } else {
+            setSelectedDate(subMonths(selectedDate, 1));
+        }
+    }
 
     async function loadData() {
         const dataKey = '@appfinancas:transactions';
         const response = await AsyncStorage.getItem(dataKey);
         const responseFormatted = response ? JSON.parse(response) : [];
 
-        const outputs = responseFormatted.
-            filter((output: TransactionData) => output.type === 'negative');
+        const outputs = responseFormatted
+        .filter((output: TransactionData) => 
+            output.type === 'negative' &&
+            new Date(output.date).getMonth() === selectedDate.getMonth() &&
+            new Date(output.date).getFullYear() === selectedDate.getFullYear()
+        );
+
+        console.log(outputs);
 
         const outputsTotal = outputs
         .reduce((accumulator: number, output: TransactionData) => {
@@ -110,13 +126,13 @@ export function Resume() {
             >
 
                 <MonthSelect>
-                    <MonthSelectButtom>
+                    <MonthSelectButtom onPress={() => handleDateChange('prev')}>
                         <MonthSelectIcon name="chevron-left" />
                     </MonthSelectButtom>
 
-                    <Month>agosto</Month>
+                    <Month>{format (selectedDate, 'MMMM, yyyy', {locale: ptBR})}</Month>
 
-                    <MonthSelectButtom>
+                    <MonthSelectButtom onPress={() => handleDateChange('next')}>
                         <MonthSelectIcon name="chevron-right" />
                     </MonthSelectButtom>
                 </MonthSelect>

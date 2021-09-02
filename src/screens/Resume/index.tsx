@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import { VictoryPie } from 'victory-native';
+
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import { useTheme } from 'styled-components';
 
@@ -12,7 +13,11 @@ import {
     Header,
     Title,
     Content,
-    ChartContainer
+    ChartContainer,
+    MonthSelect,
+    MonthSelectButtom,
+    MonthSelectIcon,
+    Month
 } from './styles';
 
 import { categories } from '../../utils/categories';
@@ -96,7 +101,26 @@ export function Resume() {
                 <Title>Resumo por categoria</Title>
             </Header>
 
-            <Content>
+            <Content
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingHorizontal: 24,
+                    paddingBottom: useBottomTabBarHeight()
+                }}
+            >
+
+                <MonthSelect>
+                    <MonthSelectButtom>
+                        <MonthSelectIcon name="chevron-left" />
+                    </MonthSelectButtom>
+
+                    <Month>agosto</Month>
+
+                    <MonthSelectButtom>
+                        <MonthSelectIcon name="chevron-right" />
+                    </MonthSelectButtom>
+                </MonthSelect>
+
                 <ChartContainer>
                     <VictoryPie
                     data={totalByCategories}

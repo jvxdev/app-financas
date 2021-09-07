@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import LogoSvg from '../../assets/logo.svg';
 import GoogleSvg from '../../assets/google.svg';
@@ -7,6 +7,7 @@ import AppleSvg from '../../assets/apple.svg';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { SignInSocialButton } from '../../components/SignInSocialButton';
 
+import { AuthContext } from '../../AuthContext';
 
 import {
     Container,
@@ -15,11 +16,14 @@ import {
     Title,
     SignInTitle,
     Footer,
-    AppTitle,
     FooterWrapper
 } from './styles';
+import { da } from 'date-fns/locale';
 
 export function SignIn() {
+    const data = useContext(AuthContext);
+
+    console.log(data);
     return (
         <Container>
             <Header>
@@ -28,11 +32,8 @@ export function SignIn() {
                         width={RFValue(150)}
                         height={RFValue(90)}
                     />
-
-                    <AppTitle>finances</AppTitle>
-
                     <Title>Controle suas finanças {'\n'} 
-                         de um jeito fácil
+                         de um jeito simples!
                     </Title>
                 </TitleWrapper>
 

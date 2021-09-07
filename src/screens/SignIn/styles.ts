@@ -22,7 +22,7 @@ export const Title = styled.Text`
     color: ${({ theme }) => theme.colors.shape};
     font-size: ${RFValue(30)}px;
     text-align: center;
-    margin-top: 45px;
+    margin-top: 30px;
 `;
 
 export const SignInTitle = styled.Text`
@@ -30,7 +30,7 @@ export const SignInTitle = styled.Text`
     color: ${({ theme }) => theme.colors.shape};
     font-size: ${RFValue(16)}px;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 67px;
 `;
 
@@ -39,11 +39,6 @@ export const Footer = styled.View`
     height: 30%;
 
     background-color: ${({ theme }) => theme.colors.black};
-`;
-
-export const AppTitle = styled.Text`
-    font-size: ${RFValue(34)}px;
-    color: ${({ theme }) => theme.colors.shape};
 `;
 
 export const FooterWrapper = styled.View`

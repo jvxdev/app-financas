@@ -10,9 +10,9 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import theme from './src/global/styles/theme';
 
-import { AppRoutes } from './src/routes/app.routes';
-
 import { SignIn } from './src/screens/SignIn';
+
+import { AuthContext } from './src/AuthContext';
 
 import {
   useFonts,
@@ -35,7 +35,9 @@ export default function App() {
   return ( 
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        <SignIn />
+        <AuthContext.Provider value={[]}>
+          <SignIn />
+        </AuthContext.Provider>
       </NavigationContainer>
     </ThemeProvider>
     );

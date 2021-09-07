@@ -7,7 +7,7 @@ import AppleSvg from '../../assets/apple.svg';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { SignInSocialButton } from '../../components/SignInSocialButton';
 
-import { AuthContext } from '../../AuthContext';
+import { useAuth } from '../../hooks/auth';
 
 import {
     Container,
@@ -21,24 +21,24 @@ import {
 import { da } from 'date-fns/locale';
 
 export function SignIn() {
-    const data = useContext(AuthContext);
+    const { user } = useAuth();
+    console.log(user);
 
-    console.log(data);
     return (
         <Container>
             <Header>
                 <TitleWrapper>
-                    <LogoSvg 
+                    <LogoSvg
                         width={RFValue(150)}
                         height={RFValue(90)}
                     />
-                    <Title>Controle suas finanças {'\n'} 
-                         de um jeito simples!
+                    <Title>Controle suas finanças {'\n'}
+                        de um jeito simples!
                     </Title>
                 </TitleWrapper>
 
                 <SignInTitle>
-                    Entre no aplicativo com {'\n'} 
+                    Entre no aplicativo com {'\n'}
                     uma das contas abaixo
                 </SignInTitle>
             </Header>

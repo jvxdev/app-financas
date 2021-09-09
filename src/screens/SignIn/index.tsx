@@ -23,7 +23,8 @@ import {
 export function SignIn() {
     const { 
         user,
-        signInWithGoogle
+        signInWithGoogle,
+        signInWithApple
     } = useAuth();
 
     async function handleSignInWithGoogle() {
@@ -33,6 +34,16 @@ export function SignIn() {
             console.log(error);
 
             Alert.alert('Não foi possível entrar com a conta Google.')
+        }    
+    }
+
+    async function handleSignInWithApple() {
+        try {
+            await signInWithApple();
+        } catch (error) {
+            console.log(error);
+
+            Alert.alert('Não foi possível entrar com a conta Apple.')
         }    
     }
 
@@ -51,7 +62,7 @@ export function SignIn() {
 
                 <SignInTitle>
                     Entre no aplicativo com {'\n'}
-                    uma das contas abaixo
+                    uma das contas abaixo.
                 </SignInTitle>
             </Header>
 
@@ -66,6 +77,7 @@ export function SignIn() {
                     <SignInSocialButton
                         title="Entrar com Apple"
                         svg={AppleSvg}
+                        onPress={handleSignInWithApple}
                     />
                 </FooterWrapper>
             </Footer>

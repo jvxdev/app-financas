@@ -50,5 +50,4 @@ export const CategoryName = styled.Text`
 `;
 
 export const Date = styled.Text`
-
 `;

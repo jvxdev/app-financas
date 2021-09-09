@@ -6,13 +6,10 @@ import * as React from 'react';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { Routes } from './src/routes';
+import { AuthProvider } from './src/hooks/auth';
 
 import theme from './src/global/styles/theme';
-
-import { SignIn } from './src/screens/SignIn';
-
-import { AuthProvider } from './src/hooks/auth';
 
 import {
   useFonts,
@@ -34,11 +31,9 @@ export default function App() {
 
   return ( 
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
         <AuthProvider>
-          <SignIn />
+          <Routes />
         </AuthProvider>
-      </NavigationContainer>
     </ThemeProvider>
     );
 }

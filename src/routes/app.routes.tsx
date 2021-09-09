@@ -21,7 +21,8 @@ export function AppRoutes() {
             tabBarLabelPosition: 'beside-icon',
             tabBarStyle: {
                 height: 50
-            }
+            },
+            headerShown: false
         }}
         >
             <Screen 
@@ -61,5 +62,5 @@ export function AppRoutes() {
             }}
             />
         </Navigator>
-    )
+    );
 }

@@ -32,12 +32,12 @@ export function SignIn() {
         try {
             setIsLoading(true);
 
-            return signInWithGoogle();
+            return await signInWithGoogle();
         } catch (error) {
             console.log(error);
 
-            Alert.alert('Não foi possível entrar com a conta Google.')
-        } finally {
+            Alert.alert('Não foi possível entrar com a conta Google.');
+
             setIsLoading(false);
         }
     }
@@ -46,12 +46,12 @@ export function SignIn() {
         try {
             setIsLoading(true);
 
-            return signInWithApple();
+            return await signInWithApple();
         } catch (error) {
             console.log(error);
 
-            Alert.alert('Não foi possível entrar com a conta Apple.')
-        } finally {
+            Alert.alert('Não foi possível entrar com a conta Apple.');
+
             setIsLoading(false);
         }
     }

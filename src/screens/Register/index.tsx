@@ -8,6 +8,7 @@ import uuid from 'react-native-uuid';
 
 import { useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../../hooks/auth';
 
 import { InputForm } from '../../components/Forms/InputForm';
 import { Button } from '../../components/Forms/Button';
@@ -44,7 +45,7 @@ export function Register() {
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
 
-    const dataKey = '@appfinancas:transactions';
+    const { user } = useAuth();
 
     const [category, setCategory] = useState({
         key: 'category',
@@ -93,6 +94,8 @@ export function Register() {
         }
 
         try {
+            const dataKey = `@appfinancas:transactions_user:${user.id}`;
+
             const data = await AsyncStorage.getItem(dataKey);
 
             const currentData = data ? JSON.parse(data) : [];
@@ -117,15 +120,6 @@ export function Register() {
             Alert.alert("Não foi possível salvar.")
         }
     }
-
-    useEffect(() => {
-        async function loadData() {
-            const data = await AsyncStorage.getItem(dataKey);
-            console.log(JSON.parse(data!));
-        }
-
-        loadData();
-    }, []);
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
